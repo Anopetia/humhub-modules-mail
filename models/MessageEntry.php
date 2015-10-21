@@ -68,7 +68,7 @@ class MessageEntry extends ActiveRecord
     public function beforeSave($insert)
     {
         if ($this->isNewRecord) {
-
+			$this->message->updated_by=$this->user_id;
             // Updates the updated_at attribute
             $this->message->save();
         }
